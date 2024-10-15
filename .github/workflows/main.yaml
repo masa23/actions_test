@@ -1,22 +1,9 @@
-name: CI
+name: onpush 
 
 on: [push]
 
 jobs:
-  test:
+  ontest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Test
-        uses: cross-platform-actions/action@v0.23.0
-        with:
-          operating_system: freebsd
-          version: '14.0'
-          run: |
-            uname -a
-            echo $SHELL
-            pwd
-            ls -lah
-            whoami
-            env | sort
