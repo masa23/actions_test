@@ -14,6 +14,7 @@ jobs:
             echo "::set-output name=file_exists::true"
           else
             echo "::set-output name=file_exists::false"
+          fi
 
   hoge:
     needs: ontest
