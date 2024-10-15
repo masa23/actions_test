@@ -8,13 +8,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: ls
+        id: check_file
         run: |
           if [ -f /home/runner/work/actions_test/actions_test/.github/workflows/hoge.yaml ]; then
-            echo "file_exists=true" >> $GITHUB_ENV
+            echo "::set-output name=file_exists::true"
           else
-            echo "file_exists=false" >> $GITHUB_ENV
+            echo "::set-output name=file_exists::false"
 
   hoge:
     needs: ontest
-    if: ${{ env.file_exists == 'true' }}
     uses: ./.github/workflows/hoge.yaml
