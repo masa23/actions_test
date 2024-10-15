@@ -11,9 +11,9 @@ jobs:
         id: check_file
         run: |
           if [ -f /home/runner/work/actions_test/actions_test/.github/workflows/hoge.yaml ]; then
-            echo "::set-output name=file_exists::true"
+            echo "file_exists=true" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=file_exists::false"
+            echo "file_exists=false" >> $GITHUB_OUTPUT
           fi
 
   hoge:
