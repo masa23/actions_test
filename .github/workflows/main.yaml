@@ -8,7 +8,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: ls
-        run: ls -la /home/runner/work/actions_test/actions_test/.github/workflows/hoge.yaml
+        run: |
+          if [ -f /home/runner/work/actions_test/actions_test/.github/workflows/hoge.yaml ]; then
+            echo "file_exists=true" >> $GITHUB_ENV
+          else
+            echo "file_exists=false" >> $GITHUB_ENV
+
   hoge:
     needs: ontest
+    if: env.file_exists == 'true'
     uses: ./.github/workflows/hoge.yaml
