@@ -18,4 +18,5 @@ jobs:
 
   hoge:
     needs: ontest
+    if: ${{ needs.ontest.outputs.file_exists == 'true' }}
     uses: ./.github/workflows/hoge.yaml
