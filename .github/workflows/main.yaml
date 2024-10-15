@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: ls
+        run: ls -la /home/runner/work/actions_test/actions_test/.github/workflows/actions.yaml
       - uses: ./.github/workflows/actions.yaml
