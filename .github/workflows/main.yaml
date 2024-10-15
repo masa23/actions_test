@@ -16,5 +16,5 @@ jobs:
 
   hoge:
     needs: ontest
-    if: env.file_exists == 'true'
+    if: ${{ env.file_exists == 'true' }}
     uses: ./.github/workflows/hoge.yaml
