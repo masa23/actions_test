@@ -15,8 +15,10 @@ jobs:
           else
             echo "file_exists=false" >> $GITHUB_OUTPUT
           fi
-
   hoge:
+    runs-on: ubuntu-latest
     needs: ontest
-    if: ${{ needs.ontest.outputs.file_exists == 'true' }}
-    uses: ./.github/workflows/hoge.yaml
+    steps:
+      - name: echo file_exists
+        run: |
+          cat $GITHUB_OUTPUT
