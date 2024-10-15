@@ -1,0 +1,13 @@
+name: hoge
+
+on:
+  workflow_call:
+
+jobs:
+  reusuable_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello, World!
+        run: |
+          echo "Hello, World!"
+          ls -la
