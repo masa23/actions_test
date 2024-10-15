@@ -10,4 +10,4 @@ jobs:
       - name: Hello, World!
         run: |
           echo "Hello, World!"
-          ls -la
+          ls -la ./.github/workflows/hoge.yaml
