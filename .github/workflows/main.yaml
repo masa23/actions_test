@@ -1,6 +1,9 @@
 name: onpush 
 
-on: [push]
+on: [ push ]
+
+env:
+  HOGE: "hoge"
 
 jobs:
   ontest:
@@ -10,15 +13,12 @@ jobs:
       - name: ls
         id: check_file
         run: |
-          if [ -f /home/runner/work/actions_test/actions_test/.github/workflows/hoge.yaml ]; then
-            echo "file_exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "file_exists=false" >> $GITHUB_OUTPUT
-          fi
+          echo $HOGE
+          HOGE="fuga"
   hoge:
     runs-on: ubuntu-latest
     needs: ontest
     steps:
       - name: echo file_exists
         run: |
-          cat $GITHUB_OUTPUT
+          cat $HOGE
