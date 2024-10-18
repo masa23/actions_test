@@ -16,4 +16,6 @@ jobs:
           name: hoge-file
           path: hoge.txt
   hoge:
-    uses: ./github/workflows/hoge.yaml
+    uses: ./.github/workflows/hoge.yaml
+    with:
+      hoge: hoge
