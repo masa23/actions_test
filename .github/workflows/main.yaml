@@ -17,4 +17,5 @@ jobs:
           path: hoge.txt
 
   hoge:
+    needs: ontest
     uses: ./.github/workflows/hoge.yaml
