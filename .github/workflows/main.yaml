@@ -16,13 +16,5 @@ jobs:
           name: hoge-file
           path: hoge.txt
   hoge:
-    runs-on: ubuntu-latest
     needs: ontest
-    steps:
-      - name: download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: hoge-file
-      - name: echo file_exists
-        run: |
-          cat hoge.txt 
+    uses: ./github/workflows/hoge.yaml

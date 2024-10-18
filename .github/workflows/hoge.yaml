@@ -6,7 +6,10 @@ jobs:
   hoge:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello, World!
+      - name: download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: hoge-file
+      - name: echo file_exists
         run: |
-          echo "Hello, World!"
-          ls -la
+          cat hoge.txt 
