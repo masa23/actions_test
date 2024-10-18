@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: ontest
     steps:
-      - uses: actions/upload-artifact@v3
+      - name: download artifact
+        uses: actions/download-artifact@v3
         with:
           name: hoge-file
-          path: hoge.txt
       - name: echo file_exists
         run: |
           cat hoge.txt 
