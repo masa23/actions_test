@@ -1,0 +1,21 @@
+name: onpush 
+
+on: [ push ]
+
+jobs:
+  ontest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: ls
+        id: check_file
+        run: |
+          echo "hoge" > hoge.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: hoge-file
+          path: hoge.txt
+
+  hoge:
+    needs: ontest
+    uses: ./.github/workflows/hoge.yaml

@@ -1,21 +1,18 @@
-name: onpush 
+name: FreeBSD
 
-on: [ push ]
+on: push
 
 jobs:
-  ontest:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: ls
-        id: check_file
-        run: |
-          echo "hoge" > hoge.txt
-      - uses: actions/upload-artifact@v3
+      - name: test freebsd 13.0
+        uses: cross-platform-actions/action@v0.23.0
         with:
-          name: hoge-file
-          path: hoge.txt
-
-  hoge:
-    needs: ontest
-    uses: ./.github/workflows/hoge.yaml
+          memory: 512M
+          operating_system: freebsd
+          version: 13.0
+          shell: sh
+          run: |
+            uname -a
