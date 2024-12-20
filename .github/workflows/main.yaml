@@ -12,7 +12,7 @@ jobs:
         with:
           memory: 512M
           operating_system: freebsd
-          version: 13.0
+          version: "13.0"
           shell: sh
           run: |
             uname -a
